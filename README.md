@@ -40,20 +40,20 @@ Here's a (not so beginner) guide:
   docker build -t youtubemp3_cleanup -f docker/cleanup/Dockerfile .
   ```
   
-4. Create the docker volumes
-
+3. Create the docker volumes
+   
 	```
 	docker volume create converted_mp3_vol
 	docker volume create redis_vol
 	```
 	
-3. Launch the docker compose
+4. Launch the docker compose
 
   ```
   docker-compose -f docker/docker-compose.yml up
   ```
   
-4. Open your browser and go to [http://127.0.0.1:8080/](http://127.0.0.1:8080/) to the see the application
+5. Open your browser and go to [http://127.0.0.1:8080/](http://127.0.0.1:8080/) to the see the application
 
 
 # Need Help or would like to learn how this is built?
