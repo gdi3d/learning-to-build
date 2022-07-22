@@ -1,0 +1,2 @@
+*/5 * * * * find /data/*.mp3 -mmin +480 -exec rm {} \;
+*/5 * * * * echo "Cleaning Up!... All files older than 8 hours are being deleted"

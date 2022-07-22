@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div id="navMenu" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Home
+            </a>
+            <a class="navbar-item">
+              Documentation
+            </a>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-dark" href="https://github.com/gdi3d/learning-to-build">Github</a>
+                <a class="button is-link" href="https://github.com/gdi3d/learning-to-build/archive/refs/heads/main.zip">Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <section class="hero is-link">
+    <div class="hero-body">
+      <p class="title">
+        Download your favorite songs from YouTube!
+      </p>
+      <p class="subtitle">
+        And learn how to become a web dev in the process 😎
+      </p>
+    </div>
+  </section>
+  <section class="section is-large has-background-dark">
+    <h1 class="title has-text-white-ter">Paste the YouTube video link here</h1>
+    <div>
+      <div class="field is-grouped">
+        <p class="control is-expanded">
+          <input class="input is-large" name="video_url" type="text" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        </p>
+        <p class="control">
+          <button class="button is-info is-large" id="convert">
+            Download as MP3
+          </button>
+        </p>
+      </div>
+    </div>
+    
+    <div class="columns mt-1 is-hidden" id="convert_success">
+      <div class="column is-8 has-text-centered is-offset-1">
+        <div class="notification is-success">
+          <p class="is-size-4">The video is being converted 🥳 &dash; <a id="mp3_download_link">Click here to download the file</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns mt-1 is-hidden" id="convert_error">
+      <div class="column is-8 has-text-centered is-offset-1">
+        <div class="notification is-danger">
+          <p class="is-size-4">Oh no!, something went wrong! 🙃</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <footer class="footer">
+  <div class="content has-text-centered">
+    <p class="is-size-5 has-text-weight-bold">
+      This project is for education purposes only
+    </p>
+    <p class="is-size-3">
+      <a href="https://github.com/gdi3d/learning-to-build" target="_blank" class="is-underlined">Click here for Guides and Help</a>
+    </p>
+    <p class="has-text-grey"><a href="https://www.linkedin.com/in/adrianogalello" target="_blank" >Creted by this guy</a>, feel free to contact me and ask questions</p>
+  </div>
+  <script src="/static/js/main.js"></script>
+</footer>
+  </body>
+</html>

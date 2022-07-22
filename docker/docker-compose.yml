@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  web:
+    image: youtubemp3_web:latest
+    restart: on-failure
+    ports:
+      - "8080:5000"
+    volumes:
+      - converted_mp3_vol:/data:ro 
+    depends_on:
+      - redis
+    environment:
+      - PYTHONPATH=/app
+      - FLASK_APP=web.main
+      - FLASK_ENV=development
+    command: ["flask", "run", "--host=0.0.0.0"]
+  celery_workers:
+    image: youtubemp3_convert:latest
+    restart: on-failure
+    deploy:
+      replicas: 1
+    volumes:
+      - converted_mp3_vol:/data
+    depends_on:
+      - redis
+    environment:
+      - PYTHONPATH=/app
+    command: celery -A convert.tasks.task worker --pool=solo --loglevel=INFO
+  cleanup:
+    image: youtubemp3_cleanup
+    restart: on-failure
+    volumes:
+      - converted_mp3_vol:/data
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+     - redis_vol:/data
+
+volumes:
+  converted_mp3_vol:
+    external: true
+  redis_vol:
+    external: true
