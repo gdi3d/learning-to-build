@@ -42,10 +42,10 @@ Here's a (not so beginner) guide:
   
 3. Create the docker volumes
    
-	```
-	docker volume create converted_mp3_vol
-	docker volume create redis_vol
-	```
+  ```
+  docker volume create converted_mp3_vol
+  docker volume create redis_vol
+  ```
 	
 4. Launch the docker compose
 
