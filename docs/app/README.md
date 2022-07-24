@@ -15,7 +15,7 @@ The project is uses a microservices architecture. What are microservices?, to pu
 
 This is where our frontend and backend API resides.
 
-### Frontend
+# Frontend
 
 The frontend is the what the user sees and is built using HTML, CSS and Javascript.
 
@@ -35,7 +35,7 @@ Once you understand the basics behind one CSS Framework, you can easily jump int
 
 I recommend that you start by skimming the docs to have a rough idea on what's all about: [https://bulma.io/documentation/overview/start/](https://bulma.io/documentation/overview/start/)
 
-#### The index file
+## The index file
 
 Open the file at `app/web/templates/index.html` with your favourite code editor.
 
@@ -43,7 +43,7 @@ This is the *main page* of our application, where our users can paste a **youtub
 
 To better understand it, let's start by analysing each section in this file.
 
-##### The head
+## The head
 
 ```
 <!DOCTYPE html>
@@ -77,7 +77,7 @@ This tells the browser to load **Bulma CSS Framework** when the page is open.
 > Source: https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
 
 
-##### The Navegation Bar
+## The Navegation Bar
 
 ```
 <nav class="navbar">
@@ -113,7 +113,7 @@ This is a fairly common navegation component. You can do a lot of customization 
 
 Just look for the one you need, and copy and paste into your own web code.
 
-##### The Hero Component
+## The Hero Component
 
 ```
 <section class="hero is-link">
@@ -138,7 +138,7 @@ You can start seeing a pattern here, you can build a lot of stuffs by just copyi
 
 > The names of components, layouts and other building blocks are the same in every CSS Frameworks.
 
-##### The main section
+## The main section
 
 ```
 <section class="section is-large has-background-dark">
@@ -240,4 +240,159 @@ And the error notification
 </div>
 ```
 
-![success-message](../images/index-alert-error.jpg)
+![error-message](../images/index-alert-error.jpg)
+
+You might notices the following *classes* already:
+
+1. [columns](https://bulma.io/documentation/columns/basics/)
+2. [mt-1](https://bulma.io/documentation/helpers/spacing-helpers/#list-of-all-spacing-helpers)
+3. [is-hidden](https://bulma.io/documentation/helpers/visibility-helpers/#other-visibility-helpers)
+4. [has-text-centered](https://bulma.io/documentation/helpers/typography-helpers/#alignment)
+5. [is-offset-1](https://bulma.io/documentation/columns/sizes/#offset)
+
+Go ahead and read the docs for them to learn more about them.
+
+## The footer
+
+This is the last part of the web, and as you might be thinking, it's yet another type of layout in **Bulma**: [https://bulma.io/documentation/layout/footer/](https://bulma.io/documentation/layout/footer/)
+
+```
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p class="is-size-5 has-text-weight-bold">
+      This project is for education purposes only
+    </p>
+    <p class="is-size-3">
+      <a href="https://github.com/gdi3d/learning-to-build" target="_blank" class="is-underlined">Click here for Guides and Help</a>
+    </p>
+    <p class="has-text-grey"><a href="https://www.linkedin.com/in/adrianogalello" target="_blank" >Created by me 👋🏼</a>, feel free to contact me and ask questions</p>
+  </div>
+</footer>
+```
+
+![footer](../images/index-footer.jpg)
+
+## The Javascript file
+
+This is where we connect our frontend (what the user see and interact with) with our backend (where all the magic happens)
+
+```
+<script src="/static/js/main.js"></script>
+```
+
+If you open the file you'll see this:
+
+```
+document.getElementById("convert").addEventListener("click", function(e) {
+  
+  const data = { video_url:  document.getElementsByName('video_url')[0].value };
+
+  fetch('http://127.0.0.1:8080/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`The endpoint returned an error: ${response.status} ${response.statusText}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+    document.getElementById('convert_error').classList.add('is-hidden');
+    document.getElementById('convert_success').classList.remove('is-hidden');
+    document.getElementById('mp3_download_link').setAttribute('href', `/download-music/${data.data.filename}`);
+  })
+  .catch((error) => {
+    console.error(error);
+    document.getElementById('convert_success').classList.add('is-hidden');
+    document.getElementById('convert_error').classList.remove('is-hidden');
+  });
+});
+```
+
+I will explain you what this whole code does so you can play a little bit with it.
+
+```
+document.getElementById("convert").addEventListener("click", function(e) {
+....
+```
+**document.getElementById** tells javascript: Find inside the document *(the web page)* an element *(a tag)* where the attribute **id** is equal to **convert**.
+
+In your case, that element is the button that we already saw in the [main section analysis](#main-section):
+
+```
+<button class="button is-info is-large" id="convert">
+  Download as MP3
+</button>
+```
+
+> There can not be two or more elements with the same id value!
+
+The next part `addEventListener("click", function(e) {...` tells javascript to add an event listener that *listen* to the **click** event and then execute some function.
+
+> In nutshell: Whenever this button with the id=convert is clicked, execute the following function.
+
+Now let's go over the function
+
+```
+const data = { video_url:  document.getElementsByName('video_url')[0].value };
+```
+
+We need to send to our backend what's the YouTube link that the user want's to download.
+
+This line assigns creates an object with a property *video_url* and set it's value *(the YouTube link that the user wants)* by reading the content of the input text named **video_url**
+
+```
+<input class="input is-large" name="video_url" type="text">
+```
+
+Notice the property **name** here, and notice that we can access this element using `document.getElementsByName`.
+
+> Contrary to **id's** attributes, there can be more than one element with the same name value. And that's the reason we use [0] (it indicates first match)
+
+Now that we have the YouTube url that the user wants to convert to mp3, we need to send it to the backend
+
+```
+fetch('http://127.0.0.1:8080/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+```
+
+We're using the *fetch* function of javascript to send our data to the backend. 
+
+I highly recommend that you read the following doc to understand better what this does [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+When the backend responses to our request, we need to see what the response was
+
+```
+.then(response => {
+    if (!response.ok) {
+      throw new Error(`The endpoint returned an error: ${response.status} ${response.statusText}`);
+    }
+    return response.json();
+  })
+```
+
+If the `response.ok` is not **true**, then we send an error, otherwise we process the response with `response.json()`
+
+As you can see, from this point on, we can take two paths. An error is present (invalid YouTube Link for example) or everything went smooth.
+
+If everything went ok, the code jumps to this part
+
+```
+.then(data => {
+    console.log(data);
+    document.getElementById('convert_error').classList.add('is-hidden');
+    document.getElementById('convert_success').classList.remove('is-hidden');
+    document.getElementById('mp3_download_link').setAttribute('href', `/download-music/${data.data.filename}`);
+  })
+ ```
+ 
