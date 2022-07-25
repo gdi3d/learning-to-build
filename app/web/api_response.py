@@ -34,7 +34,6 @@ def APIResponse(data, message, message_code, http_code, fields={}):
         'data': data,
         'message': message,
         'message_code': message_code,
-        'http_code': http_code,
         'error_fields': fields,
     }
 

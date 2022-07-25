@@ -3,25 +3,26 @@
 
 ---
 
-# Apps (or Services)
+# Table of content
 
-The project is uses a microservices architecture. What are microservices?, to put in simple terms a microservice is a small piece of a bigger system that usually does one thing and one thing only.
+- [Index file](#Index-file)
+- [Head](#Head)
+- [Navigation Bar](#Navigation-Bar)
+- [Hero Component](#Hero-Component)
+- [Main section](#Main-section)
+- [Footer](#Footer)
+- [Javascript file](#Javascript-file)
 
-> To know more about microservices, read these articles
-> 
-> @TODO add articles
-
-# Web Service (web folder)
-
-This is where our frontend and backend API resides.
 
 # Frontend
 
-The frontend is the what the user sees and is built using HTML, CSS and Javascript.
+The frontend is what the user sees and is built using HTML, CSS, and Javascript.
 
-> If you're new to HTML, CSS and Javascript:
+> If you're new to HTML, CSS, and Javascript:
 > 
-> @TODO Mozilla guides
+> [https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)  
+> [https://developer.mozilla.org/en-US/docs/Learn/CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS)  
+> [https://developer.mozilla.org/en-US/docs/Learn/JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
 
 In our case we're using a CSS Framework, called [Bulma](https://bulma.io/documentation/).
 
@@ -29,21 +30,23 @@ In our case we're using a CSS Framework, called [Bulma](https://bulma.io/documen
 >   
 > Source: https://en.wikipedia.org/wiki/CSS_framework
 
-What I like about **Bulma** is that it's nice option for people that are getting started and documentation is quite good.
+What I like about **Bulma** is that it's a nice choice for people that are getting started because of it simplicity and good documentation.
 
 Once you understand the basics behind one CSS Framework, you can easily jump into a new one quite easy.
 
-I recommend that you start by skimming the docs to have a rough idea on what's all about: [https://bulma.io/documentation/overview/start/](https://bulma.io/documentation/overview/start/)
+I recommend that you start by skimming the docs to have a rough idea of what's all about: [https://bulma.io/documentation/overview/start/](https://bulma.io/documentation/overview/start/)
 
-## The index file
+## Index file
 
-Open the file at `app/web/templates/index.html` with your favourite code editor.
+All the code for the frontend is located at `app/web/`.
 
-This is the *main page* of our application, where our users can paste a **youtube link** and send it to our backend to be converted into a mp3 file.
+Open the file at `app/web/templates/index.html` with your favorite code editor.
 
-To better understand it, let's start by analysing each section in this file.
+This is the *main page* of our application, where our users can paste a **youtube link** and send it to our backend to be converted into an mp3 file.
 
-## The head
+To better understand it, let's start by analyzing each section in this file.
+
+## Head
 
 ```
 <!DOCTYPE html>
@@ -77,7 +80,7 @@ This tells the browser to load **Bulma CSS Framework** when the page is open.
 > Source: https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
 
 
-## The Navegation Bar
+## Navigation Bar
 
 ```
 <nav class="navbar">
@@ -107,13 +110,13 @@ This tells the browser to load **Bulma CSS Framework** when the page is open.
 
 ![navbar](../images/index-navbar.jpg)
 
-This is a fairly common navegation component. You can do a lot of customization if you need.
+This is a fairly common navigation component. You can do a lot of customization if you need.
 
 **But, how do you know where to get this code?** That's simple, you just need to look at **Bulma** docs: [https://bulma.io/documentation/components/navbar/](https://bulma.io/documentation/components/navbar/)
 
-Just look for the one you need, and copy and paste into your own web code.
+Just look for the one you need, and copy and paste it into your web code.
 
-## The Hero Component
+## Hero Component
 
 ```
 <section class="hero is-link">
@@ -132,13 +135,13 @@ Just look for the one you need, and copy and paste into your own web code.
 
 This is a layout from **Bulma** called *Hero*. Here are the docs: [https://bulma.io/documentation/layout/hero/](https://bulma.io/documentation/layout/hero/)
 
-Again, you can look trough the examples and options and just copy and paste what you need.
+Again, you can look through the examples and options and just copy and paste what you need.
 
-You can start seeing a pattern here, you can build a lot of stuffs by just copying and pasting. It's all about **the building blocks** like a Lego. You just need to choose the pieces and colours to build your own cool project.
+You can start seeing a pattern here, you can build a lot of stuff by just copying and pasting. It's all about **the building blocks** like a Lego. You just need to choose the pieces and colors to build your cool project.
 
-> The names of components, layouts and other building blocks are the same in every CSS Frameworks.
+> The names of components, layouts, and other building blocks are the same in every CSS framework.
 
-## The main section
+## Main section
 
 ```
 <section class="section is-large has-background-dark">
@@ -176,7 +179,7 @@ You can start seeing a pattern here, you can build a lot of stuffs by just copyi
 ```
 Here's where our user is going to paste the YouTube URL that wants to convert into an **MP3**.
 
-There's a few things to unpack here, but again, everything has been copied and pasted from **Bulma** with minors modifications.
+There are a few things to unpack here, but again, everything has been copied and pasted from **Bulma** with minor modifications.
 
 ```
 <section class="section is-large has-background-dark">
@@ -211,9 +214,9 @@ Inside the **section** we have the input field and a button.
 
 ![input](../images/index-input.jpg)
 
-You can see that the input and button where taken from: [https://bulma.io/documentation/form/general/#form-group](https://bulma.io/documentation/form/general/#form-group) (the 4th example)
+You can see that the input and button were taken from: [https://bulma.io/documentation/form/general/#form-group](https://bulma.io/documentation/form/general/#form-group) (the 4th example)
 
-And then two *hidden* elements. You can tell they are hidden because of the *classes* in the *class* attribute is named **is-hidden**
+And then two *hidden* elements. You can tell they are hidden because the *classes* in the *class* attribute is named **is-hidden**
 
 The success notification
 ```
@@ -242,7 +245,7 @@ And the error notification
 
 ![error-message](../images/index-alert-error.jpg)
 
-You might notices the following *classes* already:
+You might have notices the following *classes* already:
 
 1. [columns](https://bulma.io/documentation/columns/basics/)
 2. [mt-1](https://bulma.io/documentation/helpers/spacing-helpers/#list-of-all-spacing-helpers)
@@ -252,7 +255,7 @@ You might notices the following *classes* already:
 
 Go ahead and read the docs for them to learn more about them.
 
-## The footer
+## Footer
 
 This is the last part of the web, and as you might be thinking, it's yet another type of layout in **Bulma**: [https://bulma.io/documentation/layout/footer/](https://bulma.io/documentation/layout/footer/)
 
@@ -272,7 +275,7 @@ This is the last part of the web, and as you might be thinking, it's yet another
 
 ![footer](../images/index-footer.jpg)
 
-## The Javascript file
+## Javascript file
 
 This is where we connect our frontend (what the user see and interact with) with our backend (where all the magic happens)
 
@@ -314,7 +317,7 @@ document.getElementById("convert").addEventListener("click", function(e) {
 });
 ```
 
-I will explain you what this whole code does so you can play a little bit with it.
+I will explain to you what this whole code does so you can play a little bit with it.
 
 ```
 document.getElementById("convert").addEventListener("click", function(e) {
@@ -334,7 +337,7 @@ In your case, that element is the button that we already saw in the [main sectio
 
 The next part `addEventListener("click", function(e) {...` tells javascript to add an event listener that *listen* to the **click** event and then execute some function.
 
-> In nutshell: Whenever this button with the id=convert is clicked, execute the following function.
+> In a nutshell: Whenever this button with the id=convert is clicked, execute the following function.
 
 Now let's go over the function
 
@@ -342,9 +345,9 @@ Now let's go over the function
 const data = { video_url:  document.getElementsByName('video_url')[0].value };
 ```
 
-We need to send to our backend what's the YouTube link that the user want's to download.
+We need to send to our backend what's the YouTube link that the user wants to download.
 
-This line assigns creates an object with a property *video_url* and set it's value *(the YouTube link that the user wants)* by reading the content of the input text named **video_url**
+This line assigns creates an object with a property *video_url* and sets it's value *(the YouTube link that the user wants)* by reading the content of the input text named **video_url**
 
 ```
 <input class="input is-large" name="video_url" type="text">
@@ -352,9 +355,9 @@ This line assigns creates an object with a property *video_url* and set it's val
 
 Notice the property **name** here, and notice that we can access this element using `document.getElementsByName`.
 
-> Contrary to **id's** attributes, there can be more than one element with the same name value. And that's the reason we use [0] (it indicates first match)
+> Contrary to **id's** attributes, there can be more than one element with the same name value. And that's the reason we use [0] (it indicates the first match)
 
-Now that we have the YouTube url that the user wants to convert to mp3, we need to send it to the backend
+Now that we have the YouTube URL that the user wants to convert to mp3, we need to send it to the backend
 
 ```
 fetch('http://127.0.0.1:8080/submit', {
@@ -370,7 +373,7 @@ We're using the *fetch* function of javascript to send our data to the backend.
 
 I highly recommend that you read the following doc to understand better what this does [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
-When the backend responses to our request, we need to see what the response was
+When the backend responds to our request, we need to see what the response was
 
 ```
 .then(response => {
@@ -381,7 +384,7 @@ When the backend responses to our request, we need to see what the response was
   })
 ```
 
-If the `response.ok` is not **true**, then we send an error, otherwise we process the response with `response.json()`
+If the `response.ok` is not **true**, then we send an error, otherwise, we process the response with `response.json()`
 
 As you can see, from this point on, we can take two paths. An error is present (invalid YouTube Link for example) or everything went smooth.
 
@@ -394,5 +397,38 @@ If everything went ok, the code jumps to this part
     document.getElementById('convert_success').classList.remove('is-hidden');
     document.getElementById('mp3_download_link').setAttribute('href', `/download-music/${data.data.filename}`);
   })
- ```
+```
  
+ This part of the code does three things:
+ 
+ 1. Shows the data responded by the backend in the [javascript console](https://developer.chrome.com/docs/devtools/open/) `console.log(data)`
+
+  ![js console](../images/index-js-success-console.jpg)  
+
+2. This is just for **debugging** purposes, that line will be removed in a production environment.
+3. The following two lines show and hide the notification component
+ 
+  ```
+  document.getElementById('convert_error').classList.add('is-hidden');
+  document.getElementById('convert_success').classList.remove('is-hidden');
+  ```
+  Why hide the error if it's already hidden in the initial state of the web page? Well, that's because the user might try an invalid URL first, causing the error to show up. So we need to make sure that in case of success the error notifications gets hide.
+  
+4. And finally, we need to tell the user where to download his converted video
+  
+  ```
+  document.getElementById('mp3_download_link').setAttribute('href', `/download-music/${data.data.filename}`);
+  ```
+  Here we're creating the **link** with the data returned by our backend
+  
+The last part of the code is just to show an error
+
+```
+.catch((error) => {
+    console.error(error);
+    document.getElementById('convert_success').classList.add('is-hidden');
+    document.getElementById('convert_error').classList.remove('is-hidden');
+  });
+```
+
+As you can see, the code is quite similar to the successful one. But in this case, we hide the success notification and show the error one.
