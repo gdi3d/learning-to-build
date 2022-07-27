@@ -34,6 +34,8 @@ What I like about **Bulma** is that it's a nice choice for people that are getti
 
 Once you understand the basics behind one CSS Framework, you can easily jump into a new one quite easy.
 
+> In a nutshell: A CSS Framework provides predefined *CSS classes* that helps you build your web page (look and feel). These **classes** are CSS definitions that you can use together to: Create buttons, notifications, different layouts and so on.
+
 I recommend that you start by skimming the docs to have a rough idea of what's all about: [https://bulma.io/documentation/overview/start/](https://bulma.io/documentation/overview/start/)
 
 ## Index file

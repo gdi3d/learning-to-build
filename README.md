@@ -10,7 +10,7 @@ This project was created as a tutorial for people that are trying to improve the
 ### Documentation (W.I.P)
 
 - [Fronted](docs/app/frontend.md)
-- [Showing the index file](#)
+- [Showing the index file](docs/app/serving-index-file.md)
 - [Receiving the YouTube Link](#)
 - [Download the MP3 file](#)
 - [Converting the Video using Celery](#)
