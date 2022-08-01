@@ -13,11 +13,11 @@ https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-8
 
 - [Fronted](docs/app/frontend.md)
 - [Showing the index file](docs/app/serving-index-file.md)
-- [Receiving the YouTube Link](#)
-- [Download the MP3 file](#)
-- [Converting the Video using Celery](#)
-- [Designing Docker Images](#)
-- [Designing the docker-compose.yaml file](#)
+- [Receiving the YouTube Link](docs/app/receiving-the-youtube-link.md)
+- Download the MP3 file (soon)
+- Converting the Video using Celery (soon)
+- Designing Docker Images (soon)
+- Designing the docker-compose.yaml file (soon)
 
 
 # What's is about?
