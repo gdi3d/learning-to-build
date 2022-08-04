@@ -1,9 +1,9 @@
-# DISCLAIMER
+# DISCLAIMER <!-- {docsify-ignore} -->
 **This document is a work in progress**
 
 ---
 
-# Showing the Index File
+# Showing the Index File <!-- {docsify-ignore} -->
 
 As mentioned in the [README.md](../../README.md) the backend is built using [Flask Framework](https://flask.palletsprojects.com/en/2.1.x/)
 

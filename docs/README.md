@@ -7,7 +7,9 @@
 
 This project was created as a tutorial for people that are trying to improve their coding skills and aims to help how to go through the whole process of building an app/system from the idea to the deployment stage.
 
-https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-819f-12a9739495e0.mp4
+<video width="720" controls>
+  <source src="https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-819f-12a9739495e0.mp4" type="video/mp4">
+</video>
 
 ### Documentation (W.I.P)
 
@@ -21,9 +23,7 @@ https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-8
 
 ### Overview
 
-![Screen Code Guide](docs/images/screen-code-guide.png)
-[click to enlarge](docs/images/screen-code-guide.png){:target="_blank"}
-
+![Screen Code Guide](/images/screen-code-guide.png)
 
 # What's is about?
 
@@ -72,7 +72,7 @@ Here's a (not so beginner) guide:
   docker volume create converted_mp3_vol
   docker volume create redis_vol
   ```
-	
+    
 4. Launch the docker compose
 
   ```

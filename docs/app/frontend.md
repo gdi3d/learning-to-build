@@ -1,20 +1,9 @@
-# DISCLAIMER
+# DISCLAIMER <!-- {docsify-ignore} -->
 **This document is a work in progress**
 
 ---
 
-# Table of content
-
-- [Index file](#Index-file)
-- [Head](#Head)
-- [Navigation Bar](#Navigation-Bar)
-- [Hero Component](#Hero-Component)
-- [Main section](#Main-section)
-- [Footer](#Footer)
-- [Javascript file](#Javascript-file)
-
-
-# Frontend
+# Frontend <!-- {docsify-ignore} -->
 
 The frontend is what the user sees and is built using HTML, CSS, and Javascript.
 

@@ -1,9 +1,9 @@
-# DISCLAIMER
+# DISCLAIMER <!-- {docsify-ignore} -->
 **This document is a work in progress**
 
 ---
 
-# Receiving the YouTube Link
+# Receiving the YouTube Link <!-- {docsify-ignore} -->
 
 Our fronted doesn't do a lot of things, it just needs to receive a **YouTube** URL and send it to our backend.
 
