@@ -1,14 +1,9 @@
-# DISCLAIMER <!-- {docsify-ignore} -->
-**This document is a work in progress**
-
----
-
-# Frontend <!-- {docsify-ignore} -->
+# The Frontend
 
 The frontend is what the user sees and is built using HTML, CSS, and Javascript.
 
-> If you're new to HTML, CSS, and Javascript:
-> 
+> If you're new to HTML, CSS, and Javascript:  
+>
 > [https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)  
 > [https://developer.mozilla.org/en-US/docs/Learn/CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS)  
 > [https://developer.mozilla.org/en-US/docs/Learn/JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
@@ -21,23 +16,25 @@ In our case we're using a CSS Framework, called [Bulma](https://bulma.io/documen
 
 What I like about **Bulma** is that it's a nice choice for people that are getting started because of it simplicity and good documentation.
 
-Once you understand the basics behind one CSS Framework, you can easily jump into a new one quite easy.
+Once you understand the basics behind one CSS Framework, you can easily jump into a new one.
 
-> In a nutshell: A CSS Framework provides predefined *CSS classes* that helps you build your web page (look and feel). These **classes** are CSS definitions that you can use together to: Create buttons, notifications, different layouts and so on.
+!> In a nutshell: A CSS Framework provides predefined *CSS classes* that helps you build your web page (look and feel). These **classes** are CSS definitions that you can use together to: Create buttons, notifications, different layouts and so on.
 
 I recommend that you start by skimming the docs to have a rough idea of what's all about: [https://bulma.io/documentation/overview/start/](https://bulma.io/documentation/overview/start/)
 
-## Index file
+## Landing Page (index.html)
 
 All the code for the frontend is located at `app/web/`.
 
 Open the file at `app/web/templates/index.html` with your favorite code editor.
 
-This is the *main page* of our application, where our users can paste a **youtube link** and send it to our backend to be converted into an mp3 file.
+!> If you don't have a code editor, [Visual Studio Code](https://code.visualstudio.com/docs/introvideos/basics) it's a good, and free, tool to use.
+
+This is the *main page* of our application, where our users can paste a **youtube link** and send it to our backend to be converted into an mp3.
 
 To better understand it, let's start by analyzing each section in this file.
 
-## Head
+## Head Section
 
 ```
 <!DOCTYPE html>
@@ -61,8 +58,8 @@ This is what you see in your browser tab when you open the tab
 `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">`  
 This tells the browser to load **Bulma CSS Framework** when the page is open.
 
-> You don't need to have **Bulma** in your computer/server to use it, you can *serve it* directly from their CDN Service
-> 
+!> You don't need to have **Bulma** in your computer/server to use it, you can *serve it* directly from their CDN Service
+ 
 > What's a CDN?  
 > A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.
 > 
@@ -101,7 +98,7 @@ This tells the browser to load **Bulma CSS Framework** when the page is open.
 
 ![navbar](../images/index-navbar.jpg)
 
-This is a fairly common navigation component. You can do a lot of customization if you need.
+This is a fairly common navigation component. You can do a lot of customization if you need to.
 
 **But, how do you know where to get this code?** That's simple, you just need to look at **Bulma** docs: [https://bulma.io/documentation/components/navbar/](https://bulma.io/documentation/components/navbar/)
 
@@ -128,9 +125,9 @@ This is a layout from **Bulma** called *Hero*. Here are the docs: [https://bulma
 
 Again, you can look through the examples and options and just copy and paste what you need.
 
-You can start seeing a pattern here, you can build a lot of stuff by just copying and pasting. It's all about **the building blocks** like a Lego. You just need to choose the pieces and colors to build your cool project.
+You can start seeing a pattern here, you can build a lot of stuff by just copying and pasting. It's all about **the building blocks** like a Lego. You just need to choose the pieces and colors to build your own cool project.
 
-> The names of components, layouts, and other building blocks are the same in every CSS framework.
+!> The names of components, layouts, and other building blocks are the same in every CSS framework.
 
 ## Main section
 
@@ -178,7 +175,7 @@ There are a few things to unpack here, but again, everything has been copied and
 </section>
 ```
 
-The section **layout** is the **Large** option in **Bulma** docs: [https://bulma.io/documentation/layout/section/](https://bulma.io/documentation/layout/section/), and you can tell by looking at one of the *classes* in the **class** attribute: `class="section is-large** has-background-dark"`, the one that's named `is-large` indicates the height of the *section*
+The section **layout** is the one named **Large** in **Bulma** docs: [https://bulma.io/documentation/layout/section/](https://bulma.io/documentation/layout/section/), and you can tell by looking at one of the *classes* in the **class** attribute: `class="section is-large has-background-dark"`, the one that's named `is-large` indicates the height of the *section*
 
 > What's a section???
 > 
@@ -207,7 +204,7 @@ Inside the **section** we have the input field and a button.
 
 You can see that the input and button were taken from: [https://bulma.io/documentation/form/general/#form-group](https://bulma.io/documentation/form/general/#form-group) (the 4th example)
 
-And then two *hidden* elements. You can tell they are hidden because the *classes* in the *class* attribute is named **is-hidden**
+And then two *hidden* elements. You can tell they are hidden because one of the *classes* in the *class* attribute is named **is-hidden**
 
 The success notification
 ```
@@ -266,15 +263,17 @@ This is the last part of the web, and as you might be thinking, it's yet another
 
 ![footer](../images/index-footer.jpg)
 
-## Javascript file
+## Javascript
 
 This is where we connect our frontend (what the user see and interact with) with our backend (where all the magic happens)
 
 ```
+# Inside app/web/templates/index.html
+
 <script src="/static/js/main.js"></script>
 ```
 
-If you open the file you'll see this:
+If you open the file at  `app/web/static/js/main.js` you'll see this:
 
 ```
 document.getElementById("convert").addEventListener("click", function(e) {
@@ -308,7 +307,7 @@ document.getElementById("convert").addEventListener("click", function(e) {
 });
 ```
 
-I will explain to you what this whole code does so you can play a little bit with it.
+Let's jump into the code line by line.
 
 ```
 document.getElementById("convert").addEventListener("click", function(e) {
@@ -324,11 +323,11 @@ In your case, that element is the button that we already saw in the [main sectio
 </button>
 ```
 
-> There can not be two or more elements with the same id value!
+!> There can not be two or more elements with the same id value!
 
 The next part `addEventListener("click", function(e) {...` tells javascript to add an event listener that *listen* to the **click** event and then execute some function.
 
-> In a nutshell: Whenever this button with the id=convert is clicked, execute the following function.
+!> In a nutshell: Whenever this button with the id=convert is clicked, execute the following function.
 
 Now let's go over the function
 
@@ -346,7 +345,7 @@ This line assigns creates an object with a property *video_url* and sets it's va
 
 Notice the property **name** here, and notice that we can access this element using `document.getElementsByName`.
 
-> Contrary to **id's** attributes, there can be more than one element with the same name value. And that's the reason we use [0] (it indicates the first match)
+!> Contrary to **id's** attributes, there can be more than one element with the same name value. And that's the reason we use [0] (it indicates the first match)
 
 Now that we have the YouTube URL that the user wants to convert to mp3, we need to send it to the backend
 
@@ -423,3 +422,9 @@ The last part of the code is just to show an error
 ```
 
 As you can see, the code is quite similar to the successful one. But in this case, we hide the success notification and show the error one.
+
+But what's http://127.0.0.1:8080 ??
+
+**127.0.0.1** it's the **local ip** address of your computer (A.K.A localhost), and **8080** it's the port where the connection is made.
+
+Of course this IP would be replaced by a domain name or another IP when you deploy it on your server. But for now we're only working on our **localhost**
