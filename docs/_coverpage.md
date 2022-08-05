@@ -4,12 +4,11 @@
 
 # Learning to build
 
-> Improve your App building skills.
+> Improve your App building skills
 
 - Frontend & Backend
 - Docker & Scalability
-- Cache Layer
-- Async tasks
+- Cache Layer & Async tasks
 
 [GitHub](https://github.com/gdi3d/learning-to-build)
-[Get Started](/?id=learning-to-build)
+[Get Started](/readme)

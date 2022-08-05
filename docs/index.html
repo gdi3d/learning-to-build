@@ -12,6 +12,9 @@
     .app-name-link img {
       height: 75px
     }
+    .markdown-section > p {
+      font-size: 1.2em;
+    }
   </style>
 </head>
 <body>
@@ -24,6 +27,7 @@
       subMaxLevel: 2,
       coverpage: true,
       auto2top: true,
+      mergeNavbar: true,
       name: 'Learning to Build',
       logo: '/images/alien-svgrepo-com.svg',
       plugins: [
@@ -42,12 +46,12 @@
                   'https://github.com/gdi3d/learning-to-build/blob/main/docs/' +
                   vm.route.file;
               }
-              var editHtml = '[:memo: Edit Document](' + url + ')\n';
+              var editHtml = '[:memo: Edit Document](' + url + ')\r\n\n';
               return (
                 editHtml +
                 html +
                 '\n\n----\n\n' +
-                '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
+                '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none; font-size: 0.8em">Powered by docsify</a>'
               );
             })
           },

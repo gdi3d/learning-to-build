@@ -1,33 +1,22 @@
-# DISCLAIMER
+# Getting Started
 
-**This document is a work in progress and I'll be building the tutorial for all the pieces in the coming weeks along with some modifications.**
+This project was created as a tutorial for people that are trying to improve their coding skills.
 
---- 
-# Learning to Build
+To-Do apps are ok for a quick look, but the best way to learn is by trying to do something a little bit complex and being able to change parts of the code and see what happens.
 
-This project was created as a tutorial for people that are trying to improve their coding skills and aims to help how to go through the whole process of building an app/system from the idea to the deployment stage.
-
-<video width="720" controls>
-  <source src="https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-819f-12a9739495e0.mp4" type="video/mp4">
-</video>
-
-### Documentation (W.I.P)
-
-- [Fronted](docs/app/frontend.md)
-- [Showing the index file](docs/app/serving-index-file.md)
-- [Receiving the YouTube Link](docs/app/receiving-the-youtube-link.md)
-- Download the MP3 file (soon)
-- Converting the Video using Celery (soon)
-- Designing Docker Images (soon)
-- Designing the docker-compose.yaml file (soon)
-
-### Overview
+## Overview
 
 ![Screen Code Guide](/images/screen-code-guide.png)
 
-# What's is about?
+<center>
+<video width="720" controls>
+  <source src="https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-819f-12a9739495e0.mp4" type="video/mp4">
+</video>
+</center>
 
-This project is a simple, yet fun web app that allow you to convert YouTube videos into mp3 files.
+## What's it about?
+
+This project is a simple, yet fun web app that allows you to convert YouTube videos into mp3 files.
 
 It uses:
 
@@ -39,7 +28,7 @@ It uses:
 - [Redis](https://redis.io/)
 - [Linux Cronjobs](https://www.educba.com/cron-in-linux/)
 
-The project uses a microservices architecture. What are microservices? to put it in simple terms microservices pattern is a way to split into small piece a system, and each microservice is designed to do one thing and one thing only.
+The project uses a microservices architecture. What are microservices? to put it in simple terms microservices pattern is a way to split into small pieces a system, and each microservice is designed to do one thing and one thing only.
 
 > To know more about microservices and why it's used, read these articles
 > 
@@ -48,7 +37,7 @@ The project uses a microservices architecture. What are microservices? to put it
 > [https://dzone.com/articles/what-is-microservices-an-introduction-to-microserv](https://dzone.com/articles/what-is-microservices-an-introduction-to-microserv)
 
 
-# How to use it
+## How to install it
 
 Here's a (not so beginner) guide:
 
@@ -73,17 +62,14 @@ Here's a (not so beginner) guide:
   docker volume create redis_vol
   ```
     
-4. Launch the docker compose
+4. Launch the docker-compose
 
   ```
   docker-compose -f docker/docker-compose.yml up
   ```
   
-5. Open your browser and go to [http://127.0.0.1:8080/](http://127.0.0.1:8080/) to the see the application
+5. Open your browser and go to [http://127.0.0.1:8080/](http://127.0.0.1:8080/) to access the application
 
+## Help / Teach Me
 
-
-# Need Help or would like to learn how this is built?
-
-Contact me at my [Linkedin](https://www.linkedin.com/in/adrianogalello/) and we can schedule a call
-   
+If you're struggling with this guide and need help, clarification, or just need someone to guide you through the whole app contact me at my [Linkedin](https://www.linkedin.com/in/adrianogalello/) and we can schedule a call.
