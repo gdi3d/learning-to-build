@@ -11,4 +11,4 @@
 - Cache Layer & Async tasks
 
 [GitHub](https://github.com/gdi3d/learning-to-build)
-[Get Started](/readme)
+[Get Started](/README)

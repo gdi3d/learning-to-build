@@ -1,4 +1,4 @@
-- [Getting Started](/readme)
+- [Getting Started](/README)
 - Web service
     - [The Fronted](/app/frontend.md)
     - [Showing the index file](/app/serving-index-file.md)
