@@ -5,7 +5,9 @@
 --- 
 # Learning to Build
 
-This project was created as a tutorial for people that are trying to improve their coding skills and aims to help how to go through the whole process of building an app/system from the idea to the deployment stage.
+This project was created as a tutorial for people that are trying to improve their coding skills.
+
+To-Do apps are ok for a quick look, but the best way to learn is by trying to do something a little bit complex and being able to change parts of the code and see what happens.
 
 https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-819f-12a9739495e0.mp4
 
