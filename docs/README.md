@@ -36,6 +36,9 @@ The project uses a microservices architecture. What are microservices? to put it
 > [https://medium.com/microservicegeeks/an-introduction-to-microservices-a3a7e2297ee0](https://medium.com/microservicegeeks/an-introduction-to-microservices-a3a7e2297ee0)  
 > [https://dzone.com/articles/what-is-microservices-an-introduction-to-microserv](https://dzone.com/articles/what-is-microservices-an-introduction-to-microserv)
 
+## How to Read the Docs
+
+The documentation is already in order in the left menu. Go from top to bottom
 
 ## How to install it
 
