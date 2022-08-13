@@ -5,7 +5,7 @@
     - [Receiving the YouTube Link](/app/receiving-the-youtube-link.md)
     - [Download the MP3 file](/app/download-mp3.md)
 - Convert service
-    - [Converting the Video using Celery](/coming-soon.md)
+    - [Converting the Video using Celery](/app/converting-youtube-video-to-mp3-celery.md)
 - Infrastructure
     - [Designing Docker Images](/coming-soon.md)
     - [Designing the docker-compose.yaml file](/coming-soon.md)
