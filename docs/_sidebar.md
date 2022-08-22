@@ -1,9 +1,7 @@
 - [Getting Started](/README)
 - Web service
-    - [The Fronted](/app/frontend.md)
-    - [Showing the index file](/app/serving-index-file.md)
-    - [Receiving the YouTube Link](/app/receiving-the-youtube-link.md)
-    - [Download the MP3 file](/app/download-mp3.md)
+    - [Fronted](/app/frontend.md)
+    - [Backend](/app/backend.md)
 - Convert service
     - [Converting the Video using Celery](/app/converting-youtube-video-to-mp3-celery.md)
 - Infrastructure
