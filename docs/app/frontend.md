@@ -36,7 +36,7 @@ To better understand it, let's start by analyzing each section in this file.
 
 ## Head Section
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -70,7 +70,7 @@ This tells the browser to load **Bulma CSS Framework** when the page is open.
 
 ## Navigation Bar
 
-```
+```html
 <nav class="navbar">
   <div class="container">
     <div id="navMenu" class="navbar-menu">
@@ -106,7 +106,7 @@ Just look for the one you need, and copy and paste it into your web code.
 
 ## Hero Component
 
-```
+```html
 <section class="hero is-link">
   <div class="hero-body">
     <p class="title">
@@ -131,7 +131,7 @@ You can start seeing a pattern here, you can build a lot of stuff by just copyin
 
 ## Main section
 
-```
+```html
 <section class="section is-large has-background-dark">
   <h1 class="title has-text-white-ter">Paste the YouTube video link here</h1>
   <div>
@@ -169,7 +169,7 @@ Here's where our user is going to paste the YouTube URL that wants to convert in
 
 There are a few things to unpack here, but again, everything has been copied and pasted from **Bulma** with minor modifications.
 
-```
+```html
 <section class="section is-large has-background-dark">
 ....
 </section>
@@ -185,7 +185,7 @@ The section **layout** is the one named **Large** in **Bulma** docs: [https://bu
 
 Inside the **section** we have the input field and a button.
 
-```
+```html
 <div>
   <div class="field is-grouped">
     <p class="control is-expanded">
@@ -207,7 +207,8 @@ You can see that the input and button were taken from: [https://bulma.io/documen
 And then two *hidden* elements. You can tell they are hidden because one of the *classes* in the *class* attribute is named **is-hidden**
 
 The success notification
-```
+
+```html
 <div class="columns mt-1 is-hidden" id="convert_success">
   <div class="column is-8 has-text-centered is-offset-1">
     <div class="notification is-success">
@@ -221,7 +222,7 @@ The success notification
 
 And the error notification
 
-```
+```html
 <div class="columns mt-1 is-hidden" id="convert_error">
   <div class="column is-8 has-text-centered is-offset-1">
     <div class="notification is-danger">
@@ -247,7 +248,7 @@ Go ahead and read the docs for them to learn more about them.
 
 This is the last part of the web, and as you might be thinking, it's yet another type of layout in **Bulma**: [https://bulma.io/documentation/layout/footer/](https://bulma.io/documentation/layout/footer/)
 
-```
+```html
 <footer class="footer">
   <div class="content has-text-centered">
     <p class="is-size-5 has-text-weight-bold">
@@ -275,7 +276,7 @@ This is where we connect our frontend (what the user see and interact with) with
 
 If you open the file at  `app/web/static/js/main.js` you'll see this:
 
-```
+```js
 document.getElementById("convert").addEventListener("click", function(e) {
   
   const data = { video_url:  document.getElementsByName('video_url')[0].value };
@@ -309,7 +310,7 @@ document.getElementById("convert").addEventListener("click", function(e) {
 
 Let's jump into the code line by line.
 
-```
+```js
 document.getElementById("convert").addEventListener("click", function(e) {
 ....
 ```
@@ -317,7 +318,7 @@ document.getElementById("convert").addEventListener("click", function(e) {
 
 In your case, that element is the button that we already saw in the [main section analysis](#main-section):
 
-```
+```html
 <button class="button is-info is-large" id="convert">
   Download as MP3
 </button>
@@ -331,7 +332,7 @@ The next part `addEventListener("click", function(e) {...` tells javascript to a
 
 Now let's go over the function
 
-```
+```js
 const data = { video_url:  document.getElementsByName('video_url')[0].value };
 ```
 
@@ -339,7 +340,7 @@ We need to send to our backend what's the YouTube link that the user wants to do
 
 This line assigns creates an object with a property *video_url* and sets it's value *(the YouTube link that the user wants)* by reading the content of the input text named **video_url**
 
-```
+```html
 <input class="input is-large" name="video_url" type="text">
 ```
 
@@ -349,7 +350,7 @@ Notice the property **name** here, and notice that we can access this element us
 
 Now that we have the YouTube URL that the user wants to convert to mp3, we need to send it to the backend
 
-```
+```js
 fetch('http://127.0.0.1:8080/submit', {
     method: 'POST',
     headers: {
@@ -365,7 +366,7 @@ I highly recommend that you read the following doc to understand better what thi
 
 When the backend responds to our request, we need to see what the response was
 
-```
+```js
 .then(response => {
     if (!response.ok) {
       throw new Error(`The endpoint returned an error: ${response.status} ${response.statusText}`);
@@ -380,7 +381,7 @@ As you can see, from this point on, we can take two paths. An error is present (
 
 If everything went ok, the code jumps to this part
 
-```
+```js
 .then(data => {
     console.log(data);
     document.getElementById('convert_error').classList.add('is-hidden');
@@ -398,7 +399,7 @@ If everything went ok, the code jumps to this part
 2. This is just for **debugging** purposes, that line will be removed in a production environment.
 3. The following two lines show and hide the notification component
  
-  ```
+  ```js
   document.getElementById('convert_error').classList.add('is-hidden');
   document.getElementById('convert_success').classList.remove('is-hidden');
   ```
@@ -406,14 +407,14 @@ If everything went ok, the code jumps to this part
   
 4. And finally, we need to tell the user where to download his converted video
   
-  ```
+  ```js
   document.getElementById('mp3_download_link').setAttribute('href', `/download-music/${data.data.filename}`);
   ```
   Here we're creating the **link** with the data returned by our backend
   
 The last part of the code is just to show an error
 
-```
+```js
 .catch((error) => {
     console.error(error);
     document.getElementById('convert_success').classList.add('is-hidden');

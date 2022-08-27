@@ -6,5 +6,5 @@
     - [Converting the Video using Celery](/app/converting-youtube-video-to-mp3-celery.md)
 - Infrastructure
     - [Architecture](/docker/architecture.md)
-    - [Designing Docker Images](/coming-soon.md)
+    - [Designing Docker Images](/docker/designing-docker-image.md)
     - [Designing the docker-compose.yaml file](/coming-soon.md)

@@ -46,13 +46,13 @@ Here's a (not so beginner) guide:
 
 1. Clone this repository in your
   
-  ```
+  ```bash
   git clone git@github.com:gdi3d/learning-to-build.git
   ```
    
 2. Build the three images that composed this app  
   
-  ```
+  ```bash
   docker build -t youtubemp3_web -f docker/web/Dockerfile .
   docker build -t youtubemp3_convert -f docker/convert/Dockerfile .
   docker build -t youtubemp3_cleanup -f docker/cleanup/Dockerfile .
@@ -60,14 +60,14 @@ Here's a (not so beginner) guide:
   
 3. Create the docker volumes
    
-  ```
+  ```bash
   docker volume create converted_mp3_vol
   docker volume create redis_vol
   ```
     
 4. Launch the docker-compose
 
-  ```
+  ```bash
   docker-compose -f docker/docker-compose.yml up
   ```
   

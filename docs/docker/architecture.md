@@ -22,6 +22,7 @@ A **container** (run by Docker) is what you **deploy/launch** to make your softw
 
 !> Docker it's just one flavor of containers, there are other container engines available: [CoreOS rkt](https://github.com/rkt/rkt), [runC](https://github.com/opencontainers/runc), [containerd](https://containerd.io/docs/), [podman](https://podman.io/), [lxc](https://github.com/lxc/lxc) ...
 
+
 ## Docker-Compose
 
 To deploy our **stack** of services, we're using **docker-compose**

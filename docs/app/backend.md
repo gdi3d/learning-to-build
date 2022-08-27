@@ -10,7 +10,7 @@ Start by opening the file at `app/web/main.py`
 
 You'll see a few *imports*, *variables* and then you'll see this code
 
-```
+```python
 @app.route('/', methods=["GET"])
 def home():
     return render_template('index.html')
@@ -64,7 +64,7 @@ Open the file at `app/main.py` and look for the code that starts with `@app.rout
 
 Let's see the first two lines
 
-```
+```python
 @app.route('/submit', methods=["POST"])
 ```
 
@@ -72,7 +72,7 @@ We use the *route* decorator to define our endpoint and we're only going to acce
 
 !> Remember a *route* is what allows us to create a URL for our users to use.
 
-```
+```python
 request_data = request.get_json()
 ```
 
@@ -88,7 +88,7 @@ In our project, we're only interested in the *payload* sent by the javascript fi
 
 That's the `const data = ...` in the first line.
 
-```
+```js
 const data = { video_url:  document.getElementsByName('video_url')[0].value };
 
 fetch('http://127.0.0.1:8080/submit', {
@@ -122,7 +122,7 @@ In our project, the cache layer is built using **[Redis](https://redis.io/)**, a
 - Key: An index, like a variable, where you store information
 - Value: The data that you want to store
 
-```
+```python
 redis_connection.set('video_id', 'p9kdDet7G14')            
 ```
 
@@ -189,7 +189,7 @@ The URL, or video ID to be precise, is present on the cache?
 
 We make a call to the **YouTube Thumbs** service 
 
-```
+```python
 video_thumb = requests.get('https://img.youtube.com/vi/{v_id}/0.jpg'.format(v_id=video_id))
 ```
 
@@ -201,7 +201,7 @@ If it does exist, we jump to **[8 Video Exists](/app/backend?id=_8-video-exists)
 
 Since the video doesn't exist on **YouTube** and we want to reduce the number of calls we make. We store the video ID in the cache.
 
-```
+```python
 rc.set(settings.CACHE_VIDEO_ID_KEY.format(vid=video_id), settings.CACHE_VIDEO_ID_DONT_EXISTS_CODE)
 ```
 
@@ -211,7 +211,7 @@ Where `settings.CACHE_VIDEO_ID_KEY` is the *key* we use to identify the record o
 
 And if we replace the variable, it would look like this
 
-```
+```python
 # Given URL https://www.youtube.com/watch?v=p9kdDet7G14
 
 rc.set("ve_{vid}".format(vid= p9kdDet7G14), '404')
@@ -224,7 +224,7 @@ rc.set("ve_p9kdDet7G14", '404')
 
 Since the video doesn't exist, we need to return an error.
 
-```
+```python
 return APIResponse(
     data={},
     message="Video doesn't exists",
@@ -239,7 +239,7 @@ This will be caught by our javascript function as described on the [The Frontend
 
 Now we know that the video exists (this happened in **[5 Video exists on YouTube](/app/backend?id=_5-video-exists-on-youtube)**), we store the video ID in our cache layer and flag it as an existent video.
 
-```
+```python
 rc.set(settings.CACHE_VIDEO_ID_KEY.format(vid=video_id), settings.CACHE_VIDEO_ID_EXISTS_CODE)
 
 # Or replacing variables, if the video URL is https://www.youtube.com/watch?v=p9kdDet7G14 
@@ -281,7 +281,7 @@ The javascript function will show that error to the user.
 
 Store the name that the MP3 file will have once is finished
 
-```
+```python
 cache_key = mp3_name
 rc.setex(cache_key, settings.CACHE_DEFAULT_TTL, settings.TASK_QUEUED_STATUS_CODE)
 ```
@@ -314,7 +314,7 @@ This means that when the user clicks on **Click here to download the file**, the
 
 Start by opening the file at `app/web/main.py` and find these lines
 
-```
+```python
 @app.route('/download-music/<video_to_mp3_id>', methods=["GET"])
 def download(video_to_mp3_id):
 ```
@@ -413,7 +413,7 @@ Or maybe the video is being converted when the user makes the request.
 > A *worker* is a process that executes a pre-defined function and it's triggered when a new *task* is given to it.  
 > Our pre-defined function is the one at `app/convert/tasks/task.py` and the function name
 > 
-> ```
+> ```python
 > @celery.task(bind=True,  
 >       autoretry_for=(Exception,),  
 >       retry_backoff=True,
@@ -485,6 +485,6 @@ We know that the file is not present in our volume, so we return **invalid.html*
 
 We've found the file, we can now send it to the user
 
-```
+```python
 return send_from_directory(settings.MEDIA_DIR, mp3_filename)
 ```
