@@ -32,4 +32,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
-CMD [ "celery", "-A", "convert.tasks.task", "worker", "--loglevel=INFO" ]
+CMD [ "celery", "-A", "convert.tasks.task", "worker", "--pool=solo", "--loglevel=ERROR" ]
