@@ -7,4 +7,7 @@
 - Infrastructure
     - [Architecture](/docker/architecture.md)
     - [Designing Docker Images](/docker/designing-docker-image.md)
-    - [Designing the docker-compose.yaml file](/coming-soon.md)
+- Deploy
+    - [Configurations and Workflow](/coming-soon.md)
+    - [On Digital Ocean](/coming-soon.md)
+    - [On AWS](/coming-soon.md)

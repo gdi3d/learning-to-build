@@ -75,4 +75,4 @@ Here's a (not so beginner) guide:
 
 ## Help / Teach Me
 
-If you're struggling with this guide and need help, clarification, or just need someone to guide you through the whole app contact me at my [Linkedin](https://www.linkedin.com/in/adrianogalello/) and we can schedule a call.
+If you're struggling with this guide and need help, clarification, or just need someone to guide you through the whole app contact me at my [LinkedIn](https://www.linkedin.com/in/adrianogalello/) and we can schedule a call.
