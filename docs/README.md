@@ -1,10 +1,16 @@
 # Getting Started
 
+Become a **FullStack DEV**.
+
+Learn how to build a web app that converts YouTube videos into mp3 files using Python, Javascript, Docker and more!
+
+## What's it about?
+
 This project was created as a tutorial for people that are trying to improve their coding skills.
 
 To-Do apps are ok for a quick look, but the best way to learn is by trying to do something a little bit complex and being able to change parts of the code and see what happens.
 
-## Overview
+This project is a simple, yet fun web app that allows you to convert YouTube videos into mp3 files.
 
 ![Screen Code Guide](/images/screen-code-guide.png)
 
@@ -13,10 +19,6 @@ To-Do apps are ok for a quick look, but the best way to learn is by trying to do
   <source src="https://user-images.githubusercontent.com/4661798/181342079-e9b51d45-33b0-4e12-819f-12a9739495e0.mp4" type="video/mp4">
 </video>
 </center>
-
-## What's it about?
-
-This project is a simple, yet fun web app that allows you to convert YouTube videos into mp3 files.
 
 It uses:
 

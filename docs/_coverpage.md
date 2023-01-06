@@ -2,9 +2,9 @@
 
 ![logo](/images/alien-svgrepo-com.svg)
 
-# Learning to build
+# Become a Fullstack DEV
 
-> Improve your App building skills
+> Build a web app that converts YouTube videos into mp3 files <br/>using Python, Javascript, Docker and more!
 
 - Frontend & Backend
 - Cache Layer & Async tasks
