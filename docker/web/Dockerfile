@@ -35,4 +35,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
-CMD [ "waitress-serve", "--listen=*:8080", "web.main:app" ]
+CMD [ "waitress-serve", "--listen=*:8000", "web.main:app" ]
