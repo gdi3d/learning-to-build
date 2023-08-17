@@ -52,7 +52,7 @@ Here's a (not so beginner) guide:
   git clone git@github.com:gdi3d/learning-to-build.git
   ```
    
-2. Build the three images that composed this app  
+2. Build the three images required for this app  
   
   ```bash
   docker build -t youtubemp3_web -f docker/web/Dockerfile .
