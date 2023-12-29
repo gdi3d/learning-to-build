@@ -71,7 +71,7 @@ This is the flow that our app follows to convert the video into an mp3
 2. The **YouTube URL** is sent to the *backend* where our *producer* talks to **Celery** (using the *download.delay(...)* command) to schedule the task.
 3. That *scheduling* procedure sends a *message* to **Redis**, which acts as a *Broker and Message Queue* at the same time, and stays there waiting.
 4. When one of the workers in the *pool* it's free, meaning it's not doing anything, it will automatically ask the *queue* if there are any new messages and start processing our new message.  
-  1. We use the tool [youtube-dl](https://github.com/ytdl-org/youtube-dl) to convert the video to MP3
+  1. We use the tool [yt-dlp](https://github.com/yt-dlp/yt-dlp) to convert the video to MP3
 5. The worker runs the task and saves the MP3 to the *convert\_mp3\_vol* volume defined in our *docker-compose.yaml*
 
 !> Did you notice?, we're using **Redis** as a cache layer and a broker & queue system 😎.

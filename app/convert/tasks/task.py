@@ -2,7 +2,7 @@ from celery import Celery
 from flask import Flask
 from convert import settings
 
-import youtube_dl
+import yt_dlp
 import redis
 import os
 
@@ -53,7 +53,7 @@ def download_audio(self, youtube_link, output_mp3_filename):
         'keepvideo': 'False'
     }
     
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([youtube_link])    
 
     # A small hack to keep to change the
