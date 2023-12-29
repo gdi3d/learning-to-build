@@ -49,7 +49,7 @@ Here's a (not so beginner) guide:
 1. Clone this repository in your
   
   ```bash
-  git clone git@github.com:gdi3d/learning-to-build.git
+  git clone https://github.com/gdi3d/learning-to-build.git
   ```
    
 2. Build the three images required for this app  
