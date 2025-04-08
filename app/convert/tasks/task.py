@@ -26,7 +26,7 @@ def make_celery(app):
 
 flask_app = Flask(__name__)
 flask_app.config.update(
-    broker_url='redis://redis:6379',
+    broker_url=settings.BROKER_URL,
     result_backend=None,
     task_soft_time_limit=60*4,
     task_time_limit=60*6
@@ -50,7 +50,6 @@ def download_audio(self, youtube_link, output_mp3_filename):
         }],
         'ffmpeg-location': './usr/bin',
         'outtmpl': save_at,
-        'keepvideo': 'False'
     }
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -63,12 +62,13 @@ def download_audio(self, youtube_link, output_mp3_filename):
     # and avoid filling up our disk.
     # This is because youtubeDL uses the original
     # file date, but we don't need it
-    os.utime(save_at, (os.path.getatime(save_at), os.path.getatime(save_at)))
-
+    downloaded_mp3 = f"{save_at}.mp3"
+    os.utime(downloaded_mp3, (os.path.getatime(downloaded_mp3), os.path.getatime(downloaded_mp3)))
+    
     # Now that the video has been converted
     # we add the name of the file (without the extension)
     # to our cache layer.
     # This will be used by our web api 
     # once a user tries to download the file.
-    cache_key = output_mp3_filename[:-4]
+    cache_key = output_mp3_filename
     rc.setex(cache_key, settings.CACHE_DEFAULT_TTL, "FINISH")

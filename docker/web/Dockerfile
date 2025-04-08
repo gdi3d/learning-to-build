@@ -18,14 +18,16 @@ RUN adduser --disabled-password \
     --uid ${SF_UID} \
     ${SF_USER}
 
-RUN mkdir /data && chown ${SF_USER} /data
+USER root
+RUN mkdir /data 
+RUN chown -R ${SF_USER}:${SF_USER} /data
+RUN chmod 777 /data
 # This dir should be the mounting point
 WORKDIR ${HOME}
 COPY app/web ${HOME}/web
 COPY app/convert ${HOME}/convert
 COPY docker/web/requirements.txt requirements.txt
 
-USER root
 RUN chown -R ${SF_USER}:${SF_USER} ${HOME}
 RUN chmod 777 ${HOME}
 

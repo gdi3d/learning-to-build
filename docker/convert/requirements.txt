@@ -23,5 +23,5 @@ vine==5.0.0
 wcwidth==0.2.5
 Werkzeug==2.1.2
 wrapt==1.14.1
-yt-dlp==2023.11.16
+yt-dlp
 zipp==3.8.1

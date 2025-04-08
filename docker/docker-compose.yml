@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   web:
     image: youtubemp3_web:latest
@@ -6,7 +5,8 @@ services:
     ports:
       - "8080:5000"
     volumes:
-      - converted_mp3_vol:/data:ro 
+      - converted_mp3_vol:/data:ro,Z 
+    user: "1000:1000"  # UID:GID
     depends_on:
       - redis
     environment:
@@ -20,7 +20,8 @@ services:
     deploy:
       replicas: 1
     volumes:
-      - converted_mp3_vol:/data
+      - converted_mp3_vol:/data:rw,Z
+    user: "1000:1000"
     depends_on:
       - redis
     environment:
@@ -30,7 +31,8 @@ services:
     image: youtubemp3_cleanup
     restart: on-failure
     volumes:
-      - converted_mp3_vol:/data
+      - converted_mp3_vol:/data:rw,Z
+    user: "1000:1000"  # UID:GID
   redis:
     image: redis:latest
     ports:

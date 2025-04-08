@@ -12,7 +12,7 @@ import re
 
 app = Flask(__name__)
 
-rc = redis.Redis(host='redis', decode_responses=True)
+rc = redis.Redis(host=settings.REDIS_SVC_HOST, decode_responses=True)
 
 @app.route('/', methods=["GET"])
 def home():
@@ -136,7 +136,7 @@ def submit():
         mp3_name = str(uuid4())
 
         try:
-            download_audio.delay(request_data['video_url'], "{}.mp3".format(mp3_name))
+            download_audio.delay(request_data['video_url'], "{}".format(mp3_name))
             
             app.logger.debug("Sending the task to download the video ID '{}'".format(video_id))
         except Exception as e:
